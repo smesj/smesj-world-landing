@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ship": "next build && docker build . -t smesjman/smesj-world && docker push smesjman/smesj-world"
   },
   "dependencies": {
     "react": "^18",
