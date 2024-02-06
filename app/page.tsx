@@ -1,10 +1,11 @@
 'use client'
-import {  UserButton } from "@clerk/nextjs";
+import { UserButton, useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
 	const router = useRouter();
+	const { userId } = useAuth();
 
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -14,7 +15,22 @@ export default function Home() {
 					<code className="font-mono font-bold">Smesj World</code>
 				</p>
 				<div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-					<UserButton />
+					{userId && (
+						<div className={"pr-8"}>
+							<UserButton/>
+						</div>
+
+					)}
+					<a
+						className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+						target="_blank"
+						rel="noopener noreferrer"
+						onClick={() => {
+							router.push('/sign-in');
+						}}
+					>
+						By smesj.exe
+					</a>
 				</div>
 			</div>
 
@@ -23,7 +39,7 @@ export default function Home() {
 				<Image
 					className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
 					src="/outlaw-josie-circle.png"
-					alt="Next.js Logo"
+					alt="smesj world logo"
 					width={180}
 					height={37}
 					priority
