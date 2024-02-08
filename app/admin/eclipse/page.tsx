@@ -1,6 +1,6 @@
 'use client'
 import NewGameSheet from "./NewGameSheet";
-import {  useGetPlayers } from "./hooks/useListPlayers";
+import { useGetPlayers } from "./hooks/useListPlayers";
 import { useEffect } from "react";
 
 export default function EclipsePage() {
@@ -8,7 +8,11 @@ export default function EclipsePage() {
 
     useEffect(() => {
         fetchPlayers()
-    },[]);
+    }, []);
 
-    return (<NewGameSheet players={players} />)
+    return (
+        <>
+            <NewGameSheet players={players} />
+        </>
+    )
 }
