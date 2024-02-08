@@ -1,12 +1,13 @@
+import { Player } from "./hooks/useListPlayers"
 
 interface Props {
-    player: string
+    player: Player
 }
 
 export default function PlayerCol({player}: Props) {
     return (
         <div className="flex flex-col w-1/6 gap-4">
-            <h3 className="text-1xl font-bold leading-tight tracking-tight text-white">{player}</h3>
+            <h3 className="text-1xl font-bold leading-tight tracking-tight text-white">{player.name}</h3>
             <div>
                 <label htmlFor="reputation" className="sr-only">
                     Reputation
